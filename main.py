@@ -13,12 +13,15 @@ def generate_report(text_path = ""):
     working_text = get_book_text(text_path)
     word_count = get_word_count(working_text)
     char_occurance = get_char_occurance(working_text)
+    sorted_occurance = dict_sort(char_occurance)
+
     print("========BOOKBOT========")
     print(f"Analyzing book found at {text_path}...")
     print("--------Word Count--------")
     print(f"Found {word_count} total words")
     print("--------Character Count --------")
-    print(f"{dict_sort(char_occurance)}")
+    for i in sorted_occurance:
+        print(i)
     print("======== END ========")
 
 def main():
