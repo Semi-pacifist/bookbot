@@ -1,5 +1,4 @@
 # Contains functions for analyzing text
-from curses.ascii import isalpha
 
 def get_word_count(book_text = ""):
     text_words = book_text.split()
@@ -17,6 +16,11 @@ def get_char_occurance(book_text = ""):
     return char_dict
 
 def dict_sort(working_dict = {}):
-    working_dict = working_dict.isalpha()
-    working_dict.sort(reverse=True)
+    delete_dict = {}
+    for c in working_dict:
+        if not c.isalpha():
+            delete_dict[c] = 1
+    for d in delete_dict:
+        del working_dict[d]
+    #working_dict.sort(reverse=True)
     return working_dict
