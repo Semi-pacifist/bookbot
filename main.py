@@ -2,6 +2,7 @@
 from stats import get_word_count
 from stats import get_char_occurance
 from stats import dict_sort
+import sys
 
 #function delcarations
 def get_book_text(book_filepath = ""):
@@ -24,8 +25,12 @@ def generate_report(text_path = ""):
         print(i)
     print("======== END ========")
 
-def main():
-    generate_report("books/frankenstein.txt")
+def main(user_text = []):
+    if len(user_text) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        generate_report(user_text[1])
 
 #program
-main()
+main(sys.argv)
